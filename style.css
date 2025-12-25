@@ -1,0 +1,104 @@
+/* Reset & body */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0d1117;
+    background: radial-gradient(circle at 10% 20%, #1b1f2a, #0d1117 80%), 
+                repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 10px);
+    background-size: cover;
+    animation: moveBackground 30s linear infinite;
+}
+
+/* Background animation */
+@keyframes moveBackground {
+    0% { background-position: 0 0, 0 0; }
+    50% { background-position: 200px 200px, 200px -200px; }
+    100% { background-position: 0 0, 0 0; }
+}
+
+.container {
+    position: relative;  /* Add this line */
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    border-radius: 15px;
+    width: 360px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0,0,0,0.7);
+}
+/* Title */
+h1 {
+    margin-bottom: 20px;
+    color: #e0e0e0;
+}
+
+/* Game board */
+.game-board {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 10px;
+    justify-content: center;
+}
+
+/* Cells */
+.cell {
+    background-color: rgba(20, 20, 20, 0.8);
+    border: 2px solid #334155;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    color: #cbd5e1;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.cell:hover {
+    background-color: #1e293b;
+    transform: scale(1.05);
+}
+
+/* Game info */
+#message {
+    margin-top: 20px;
+    color: #cbd5e1;
+    font-weight: bold;
+}
+
+#restart {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #1e293b;
+    color: #cbd5e1;
+}
+
+#restart:hover {
+    background-color: #334155;
+}
+.win-line {
+    position: absolute;
+    width: 0;
+    height: 4px;
+    background-color: #facc15; /* glowing yellow line */
+    top: 0;
+    left: 0;
+    transform-origin: left center;
+    transition: all 0.5s ease;
+    pointer-events: none;
+    border-radius: 2px;
+}
